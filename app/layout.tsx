@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       "Eye color, hair color, skin tone and facial features inherited from parents AND grandparents, with recessive traits that skip generations. Free beta.",
     type: "article",
     url: "https://foxmademods.com",
-    siteName: "FoxMade Mods",
+    siteName: "Fox Made Mods",
   },
   twitter: {
     card: "summary_large_image",
