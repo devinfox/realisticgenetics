@@ -15,7 +15,7 @@ export function SignupForm() {
     const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim();
 
     if (!email || email.indexOf("@") < 1) {
-      setMsg({ text: "Pop in a valid email first.", kind: "err" });
+      setMsg({ text: "Enter a valid email.", kind: "err" });
       return;
     }
 
@@ -29,12 +29,12 @@ export function SignupForm() {
       });
       if (res.ok) {
         form.reset();
-        setMsg({ text: "Got it — thank you.", kind: "ok" });
+        setMsg({ text: "Thanks, got it.", kind: "ok" });
       } else {
-        setMsg({ text: "Hmm, that didn't send. Try again in a moment?", kind: "err" });
+        setMsg({ text: "That didn't send. Try again in a moment.", kind: "err" });
       }
     } catch {
-      setMsg({ text: "Couldn't reach the server just now. Try again shortly?", kind: "err" });
+      setMsg({ text: "Couldn't reach the server. Try again shortly.", kind: "err" });
     } finally {
       setSending(false);
     }
@@ -52,11 +52,11 @@ export function SignupForm() {
       <textarea
         name="message"
         rows={3}
-        placeholder="A bug, a request, or just hi (optional)"
+        placeholder="Bug report or question (optional)"
       />
       <div className="row">
         <button className="btn btn-primary" type="submit" disabled={sending}>
-          {sending ? "Sending…" : "Send it"}
+          {sending ? "Sending…" : "Send"}
         </button>
         <span className={`msg ${msg.kind}`} role="status" aria-live="polite">
           {msg.text}

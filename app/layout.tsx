@@ -14,9 +14,10 @@ const body = Figtree({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://foxmademods.com"),
-  title: "Realistic Genetics — Sims 4 Genetics Mod with Grandparents & Recessive Traits",
+  title:
+    "Realistic Genetics: Sims 4 Genetics Mod with Grandparents & Recessive Traits",
   description:
-    "A free Sims 4 genetics mod that inherits eye color, hair color, skin tone and facial features from the whole family tree — grandparents included. Recessive traits can skip a generation and come back. Works with existing legacy saves.",
+    "A free Sims 4 genetics mod that inherits eye color, hair color, skin tone and facial features from the whole family tree, grandparents included. Recessive traits can skip a generation and come back. Works with existing legacy saves.",
   keywords: [
     "sims 4 genetics mod",
     "realistic genetics sims 4",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://foxmademods.com" },
   openGraph: {
-    title: "Realistic Genetics — a Sims 4 genetics mod that remembers the whole family",
+    title: "Realistic Genetics: a Sims 4 genetics mod that remembers the whole family",
     description:
       "Eye color, hair color, skin tone and facial features inherited from parents AND grandparents, with recessive traits that skip generations. Free beta.",
     type: "article",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Realistic Genetics — a Sims 4 genetics mod that remembers the whole family",
+    title: "Realistic Genetics: a Sims 4 genetics mod that remembers the whole family",
     description:
       "Inheritance from grandparents, recessive traits that skip generations. Free beta for The Sims 4.",
   },

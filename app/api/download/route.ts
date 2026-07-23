@@ -1,4 +1,4 @@
-// Counts a download (no personal data — just a timestamped row) then hands over
+// Counts a download (no personal data, just a timestamped row) then hands over
 // the file. Counting is best-effort: if it fails, the download still happens.
 
 export const dynamic = "force-dynamic";

@@ -104,7 +104,7 @@ export default function Home() {
               <p>
                 Grandparents aren&rsquo;t part of the genetics system, and Sims don&rsquo;t
                 carry hidden recessive traits. So if blue eyes disappear for one generation,
-                they can&rsquo;t randomly come back in the next one &mdash; even if the
+                they can&rsquo;t randomly come back in the next one, even if the
                 grandparent had them.
               </p>
               <p>
@@ -242,7 +242,7 @@ export default function Home() {
               loading="lazy"
             />
             <figcaption>
-              Two sisters, same parents &mdash; each inherits a different mix, with every
+              Two sisters, same parents. Each inherits a different mix, with every
               feature traced to a real ancestor.
             </figcaption>
           </figure>
@@ -260,7 +260,7 @@ export default function Home() {
               loading="lazy"
             />
             <figcaption>
-              Four generations deep &mdash; recessive traits like red hair and blue eyes
+              Four generations deep. Recessive traits like red hair and blue eyes
               resurface from founders further up the tree.
             </figcaption>
           </figure>
@@ -290,7 +290,7 @@ export default function Home() {
                 loading="lazy"
               />
               <figcaption>
-                <b>Birth Genetics Report</b> &mdash; see which features the baby inherited
+                <b>Birth Genetics Report</b>. See which features the baby inherited
                 and where they came from.
               </figcaption>
             </figure>
@@ -304,7 +304,7 @@ export default function Home() {
                 loading="lazy"
               />
               <figcaption>
-                <b>Family Genetics View</b> &mdash; see the parents, grandparents and other
+                <b>Family Genetics View</b>. See the parents, grandparents and other
                 relatives connected to the Sim&rsquo;s genetics.
               </figcaption>
             </figure>
@@ -365,7 +365,7 @@ export default function Home() {
           </p>
           <p>
             That being said, it is still a beta, so please back up your save before testing
-            it &mdash; especially if it&rsquo;s a legacy you&rsquo;ve been playing for
+            it, especially if it&rsquo;s a legacy you&rsquo;ve been playing for
             years.
           </p>
           <p>
@@ -382,7 +382,7 @@ export default function Home() {
           ))}
 
           <div className="support" id="support">
-            <h2>It&rsquo;s just me &mdash; Fox</h2>
+            <h2>It&rsquo;s just me, Fox</h2>
             <p>
               I made this because I play long legacy saves, and it always bothered me that
               genetics basically reset every generation.
@@ -395,9 +395,8 @@ export default function Home() {
             <p>I wanted to be able to look at a Sim and see their family in them.</p>
             <p style={{ marginBottom: 18 }}>
               It&rsquo;s just me working on the mod, the website, testing and support, so
-              bug reports genuinely help. Send screenshots, explain who everyone is related
-              to and tell me what looked wrong. The more information you give me, the easier
-              it is for me to figure out what happened.
+              bug reports help. A screenshot and who the Sims are related to is usually
+              enough for me to figure out what happened.
             </p>
             <SignupForm />
           </div>
