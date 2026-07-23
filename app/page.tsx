@@ -31,7 +31,7 @@ const FAQ = [
   },
   {
     q: "Does it invent traits that aren't in the family?",
-    a: "No. A recessive trait can only come back if it already exists somewhere in the bloodline.",
+    a: "It won't invent wild or unnatural traits. Recessive traits come from the bloodline — and when an ancestor is missing from the tree, the mod can assume a realistic hidden carrier, which is how recessive genes resurface in real life.",
   },
   {
     q: "What does beta mean?",
@@ -160,17 +160,21 @@ export default function Home() {
             using the two parents.
           </p>
           <p>
-            Hair color, eye color and skin tone are passed down using dominant and
-            recessive genetics. A Sim can carry a trait without showing it, then pass it on
-            later.
+            Hair and eye color are passed down using dominant and recessive genetics. A
+            Sim can carry a color without showing it, then pass it on to a later generation.
+          </p>
+          <p>
+            Skin tone works a little differently. It blends the parents&rsquo; tones, with
+            some influence from further up the family, so children land in a natural range
+            for their family rather than a random shade.
           </p>
           <p>
             Facial features can also come from different relatives. A child might get their
             mom&rsquo;s eyes, their dad&rsquo;s mouth and their grandmother&rsquo;s nose.
           </p>
           <p>
-            Nothing should appear out of nowhere. If a trait shows up, it should exist
-            somewhere in the bloodline.
+            Nothing unnatural appears out of nowhere. If a trait shows up, it traces back
+            to the family.
           </p>
 
           <p className="callout">
@@ -290,8 +294,8 @@ export default function Home() {
                 loading="lazy"
               />
               <figcaption>
-                <b>Birth Genetics Report</b>. See which features the baby inherited
-                and where they came from.
+                <b>Inheritance breakdown</b>. Exactly which parent or grandparent each
+                feature came from.
               </figcaption>
             </figure>
             <figure>
@@ -304,8 +308,8 @@ export default function Home() {
                 loading="lazy"
               />
               <figcaption>
-                <b>Family Genetics View</b>. See the parents, grandparents and other
-                relatives connected to the Sim&rsquo;s genetics.
+                <b>The genetics menu</b>. Recalculate, view inheritance, save the look,
+                or refresh a Sim&rsquo;s appearance.
               </figcaption>
             </figure>
           </div>
@@ -330,12 +334,13 @@ export default function Home() {
           <ol className="steps">
             <li>Download and unzip the file.</li>
             <li>
-              Put the <code>.package</code> and <code>.ts4script</code> files in{" "}
+              Put <code>RealisticGenetics.ts4script</code> in{" "}
               <em>
                 Documents &rsaquo; Electronic&nbsp;Arts &rsaquo; The&nbsp;Sims&nbsp;4
                 &rsaquo; Mods
               </em>
-              . Don&rsquo;t place the script file more than one folder deep.
+              . It&rsquo;s the only file &mdash; there&rsquo;s no <code>.package</code>.
+              Don&rsquo;t place it more than one folder deep.
             </li>
             <li>
               Make sure <strong>Custom Content and Mods</strong> and{" "}
@@ -382,22 +387,8 @@ export default function Home() {
           ))}
 
           <div className="support" id="support">
-            <h2>It&rsquo;s just me, Fox</h2>
-            <p>
-              I made this because I play long legacy saves, and it always bothered me that
-              genetics basically reset every generation.
-            </p>
-            <p>
-              The game can make a child look like their parents, but it doesn&rsquo;t really
-              create a bloodline. Traits don&rsquo;t properly skip generations, grandparents
-              stop mattering and family resemblance slowly disappears.
-            </p>
-            <p>I wanted to be able to look at a Sim and see their family in them.</p>
-            <p style={{ marginBottom: 18 }}>
-              It&rsquo;s just me working on the mod, the website, testing and support, so
-              bug reports help. A screenshot and who the Sims are related to is usually
-              enough for me to figure out what happened.
-            </p>
+            <h2>Any bugs to report?</h2>
+            <p style={{ marginBottom: 18 }}>Let me know here!</p>
             <SignupForm />
           </div>
         </div>
