@@ -14,15 +14,32 @@ const body = Figtree({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://foxmademods.com"),
-  title: "RealisticGenetics — a Sims 4 mod by FoxMade",
+  title: "Realistic Genetics — Sims 4 Genetics Mod with Grandparents & Recessive Traits",
   description:
-    "A mod for The Sims 4 that makes babies inherit their looks from parents and grandparents — real dominant and recessive genetics for eyes, hair, skin and faces. Free, no other mods needed.",
+    "A free Sims 4 genetics mod that inherits eye color, hair color, skin tone and facial features from the whole family tree — grandparents included. Recessive traits can skip a generation and come back. Works with existing legacy saves.",
+  keywords: [
+    "sims 4 genetics mod",
+    "realistic genetics sims 4",
+    "sims 4 recessive genes",
+    "sims 4 grandparent genetics",
+    "sims 4 inheritance mod",
+    "sims 4 legacy mod",
+    "sims 4 babies look like parents",
+  ],
+  alternates: { canonical: "https://foxmademods.com" },
   openGraph: {
-    title: "RealisticGenetics — a Sims 4 mod by FoxMade",
+    title: "Realistic Genetics — a Sims 4 genetics mod that remembers the whole family",
     description:
-      "Babies that actually look like their family. Real inheritance for The Sims 4.",
+      "Eye color, hair color, skin tone and facial features inherited from parents AND grandparents, with recessive traits that skip generations. Free beta.",
     type: "article",
     url: "https://foxmademods.com",
+    siteName: "FoxMade Mods",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Realistic Genetics — a Sims 4 genetics mod that remembers the whole family",
+    description:
+      "Inheritance from grandparents, recessive traits that skip generations. Free beta for The Sims 4.",
   },
 };
 

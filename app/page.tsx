@@ -6,9 +6,73 @@ import { SignupForm } from "./signup-form";
 // then redirects to the file in public/. Bump the filename in app/api/download/route.ts.
 const DOWNLOAD_URL = "/api/download";
 
+// FAQ answers live here so the visible <details> and the FAQPage structured data
+// can never drift apart. Google penalises schema that doesn't match the page.
+const FAQ = [
+  {
+    q: "Do I need to start a new save?",
+    a: "No. You can use it with an existing save.",
+  },
+  {
+    q: "Will it work with my current legacy family?",
+    a: "Yes. The in-game tool can scan the family tree and start building genetics from the relatives already there.",
+  },
+  {
+    q: "Does it change every Sim in my save?",
+    a: "No. It isn't going to randomly remake your whole save. It runs when a new baby is born or when you manually use the tool on an existing Sim.",
+  },
+  {
+    q: "Can Sims inherit features from their grandparents?",
+    a: "Yes. That's one of the main reasons I made it.",
+  },
+  {
+    q: "Can recessive traits skip generations?",
+    a: "Yes. A Sim can carry a trait without showing it and later pass it to their child.",
+  },
+  {
+    q: "Does it invent traits that aren't in the family?",
+    a: "No. A recessive trait can only come back if it already exists somewhere in the bloodline.",
+  },
+  {
+    q: "What does beta mean?",
+    a: "It means the main mod is working, but I'm still finding edge cases and testing it on more complicated saves.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      name: "Realistic Genetics",
+      applicationCategory: "GameApplication",
+      operatingSystem: "Windows, macOS",
+      softwareVersion: "Beta 2.9.14",
+      description:
+        "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
+      url: "https://foxmademods.com",
+      author: { "@type": "Person", name: "Fox", url: "https://foxmademods.com" },
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <div className="fm">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+
       <nav className="nav">
         <div className="nav-in">
           <a className="brand" href="#top">
@@ -18,6 +82,7 @@ export default function Home() {
           <div className="nav-links">
             <a href="#how">How it works</a>
             <a href="#install">Install</a>
+            <a href="#faq">FAQ</a>
           </div>
         </div>
       </nav>
@@ -26,12 +91,32 @@ export default function Home() {
         <header className="post-head">
           <div className="article">
             <Plumbob className="pb pb-hero" id="hero" />
-            <div className="eyebrow">A mod for The&nbsp;Sims&nbsp;4</div>
-            <h1>RealisticGenetics</h1>
+            <div className="eyebrow">A genetics mod for The&nbsp;Sims&nbsp;4</div>
+            <h1>Realistic Genetics</h1>
             <p className="deck">
-              Babies that actually look like their family &mdash; real inheritance for
-              eyes, hair, skin and facial features.
+              A Sims&nbsp;4 genetics mod that actually remembers the whole family.
             </p>
+            <div className="hero-copy">
+              <p>
+                The game already passes down DNA from the parents. The problem is, it only
+                looks at the parents.
+              </p>
+              <p>
+                Grandparents aren&rsquo;t part of the genetics system, and Sims don&rsquo;t
+                carry hidden recessive traits. So if blue eyes disappear for one generation,
+                they can&rsquo;t randomly come back in the next one &mdash; even if the
+                grandparent had them.
+              </p>
+              <p>
+                <strong>Realistic Genetics fixes that.</strong>
+              </p>
+            </div>
+            <div className="dl-hero">
+              <a className="btn btn-primary" href={DOWNLOAD_URL}>
+                Download the beta
+              </a>
+              <p>Free &middot; Works with existing saves &middot; Made for legacy players</p>
+            </div>
             <div className="byline">
               <span className="avatar">
                 <Plumbob className="pb pb-av" id="av" />
@@ -39,96 +124,119 @@ export default function Home() {
               <span>
                 <span className="who">Fox</span>
                 <br />
-                <span className="meta">FoxMade&nbsp;Mods &middot; Beta release &middot; July&nbsp;2026</span>
+                <span className="meta">
+                  FoxMade&nbsp;Mods &middot; Beta release &middot; July&nbsp;2026
+                </span>
               </span>
-            </div>
-            <div className="pills">
-              <span className="pill on">Free</span>
-              <span className="pill on">No other mods needed</span>
-              <span className="pill">Base-game friendly</span>
-              <span className="pill">Safe to remove</span>
             </div>
           </div>
         </header>
 
         <div className="article prose">
-          <p className="lead">
-            When two Sims have a baby, the game basically rolls the dice. The little one
-            often ends up looking nothing like either parent &mdash; a stranger with a
-            random face. After twenty years of playing, that always bugged me. Real
-            families have a look. Grandma&rsquo;s nose turns up three generations later.
-            That&rsquo;s the part I wanted back.
-          </p>
+          <h2 id="what">What this does, in one line</h2>
+          <p className="lead">It gives your Sims an actual genetic history.</p>
 
-          <h2 id="what">What it does, in one line</h2>
+          <h2 id="problem">What&rsquo;s wrong with the genetics in the game?</h2>
           <p>
-            <strong>RealisticGenetics makes children inherit their looks from their
-            parents and grandparents</strong> &mdash; the same way genetics works in real
-            life. Eye colour, hair colour, skin tone and the shape of the face all get
-            passed down, instead of being picked at random.
+            The genetics in The Sims&nbsp;4 aren&rsquo;t completely random. Kids do inherit
+            features from their parents.
           </p>
+          <p>The issue is that the game stops there.</p>
+          <p>
+            It doesn&rsquo;t remember what the parents inherited from <em>their</em>{" "}
+            parents. There are no hidden genes being carried through the family, so traits
+            can&rsquo;t properly skip generations.
+          </p>
+          <p>
+            A Sim with brown eyes can&rsquo;t carry blue eyes from their mother and later
+            pass them to their own child. Once the blue eyes are no longer visible,
+            they&rsquo;re basically gone.
+          </p>
+          <p>That&rsquo;s what I wanted to fix.</p>
 
-          <h2 id="how">How it works (in plain English)</h2>
-          <p>Cast your mind back to school biology for a second &mdash; I&rsquo;ll keep it painless.</p>
+          <h2 id="how">How it works</h2>
           <p>
-            Everyone carries two copies of each trait, one from each parent. Some versions
-            are <strong>dominant</strong> (they show up whenever they&rsquo;re present) and
-            some are <strong>recessive</strong> (they only show up if you have two of them).
+            When a baby is born, the mod looks at the actual family tree instead of only
+            using the two parents.
           </p>
           <p>
-            Brown eyes are dominant; blue eyes are recessive. So a brown-eyed Sim can
-            quietly carry a hidden blue gene without you ever knowing. Put two of those
-            Sims together and &mdash; surprise &mdash; you can get a blue-eyed baby, even
-            though both parents have brown eyes.
+            Hair color, eye color and skin tone are passed down using dominant and
+            recessive genetics. A Sim can carry a trait without showing it, then pass it on
+            later.
           </p>
           <p>
-            That&rsquo;s the fun part: a trait can hide for a generation and pop back up
-            later. Red hair, blue eyes, a certain skin tone &mdash; they&rsquo;re never
-            truly gone, just waiting. RealisticGenetics keeps track of all of it quietly in
-            the background, for every Sim in the family tree.
+            Facial features can also come from different relatives. A child might get their
+            mom&rsquo;s eyes, their dad&rsquo;s mouth and their grandmother&rsquo;s nose.
+          </p>
+          <p>
+            Nothing should appear out of nowhere. If a trait shows up, it should exist
+            somewhere in the bloodline.
           </p>
 
           <p className="callout">
-            Blue eyes can vanish for a whole generation, then reappear in a grandchild. The
-            mod remembers who&rsquo;s carrying what.
+            A trait can disappear for a generation and come back later because the Sim was
+            still carrying it.
           </p>
 
-          <h2 id="passed">What gets passed down</h2>
+          <h2 id="passed">What gets passed down?</h2>
           <ul>
             <li>
               <Plumbob className="pb pb-tick" id="t1" />
-              <span><b>Eye colour</b> &mdash; with real dominant and recessive genes</span>
+              <span>Eye color</span>
             </li>
             <li>
               <Plumbob className="pb pb-tick" id="t2" />
-              <span><b>Hair colour</b> &mdash; including recessive shades that can skip a generation</span>
+              <span>Hair color</span>
             </li>
             <li>
               <Plumbob className="pb pb-tick" id="t3" />
-              <span><b>Skin tone</b> &mdash; blended from both parents and kept natural</span>
+              <span>Skin tone</span>
             </li>
             <li>
               <Plumbob className="pb pb-tick" id="t4" />
-              <span><b>Facial features</b> &mdash; nose, jaw, eyes and mouth, inherited from parents and grandparents</span>
+              <span>Eyes</span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="t5" />
+              <span>Nose</span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="t6" />
+              <span>Mouth</span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="t7" />
+              <span>Jaw and face shape</span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="t8" />
+              <span>Other facial features</span>
             </li>
           </ul>
           <p>
-            Kids come out clearly related to their family &mdash; a mix of both parents,
-            sometimes with a grandparent&rsquo;s feature showing through &mdash; without
-            being identical clones of each other.
+            Every feature is rolled separately, so siblings won&rsquo;t all look the same.
+          </p>
+          <p>
+            One child might look mostly like their dad. Another might look more like their
+            mom. Another might randomly look exactly like a grandparent.
+          </p>
+          <p>
+            The point isn&rsquo;t to make every Sim look identical. It&rsquo;s to make them
+            look like they came from the same family.
           </p>
 
           <h2 id="results">See it across a family</h2>
+          <p>This is where the mod gets interesting.</p>
           <p>
-            Here are real families built with the mod. Every child&rsquo;s features trace
-            back to a specific parent or grandparent &mdash; and two siblings from the exact
-            same parents still turn out as their own people.
+            You might notice a grandchild has the same nose as their grandmother. Two
+            cousins might have the same eyes. A hair or eye color can disappear and then
+            show up again a generation later.
           </p>
           <figure>
             <img
               className="shot"
               src="/rg-tree-sisters.webp"
-              alt="Family tree of two sisters, Janet and Colleen, showing which facial feature each inherited from their parents and grandparents."
+              alt="Sims 4 family tree of two sisters showing which facial feature each inherited from their parents and grandparents with the Realistic Genetics mod."
               width={1080}
               height={1125}
               loading="lazy"
@@ -138,11 +246,15 @@ export default function Home() {
               feature traced to a real ancestor.
             </figcaption>
           </figure>
+          <p>
+            The longer you play the family, the more you can actually see traits moving
+            through it.
+          </p>
           <figure>
             <img
               className="shot"
               src="/rg-tree-4gen.png"
-              alt="Four-generation family tree showing traits passed down from the founders to the heirs, including recessive red hair and blue eyes resurfacing."
+              alt="Four-generation Sims 4 legacy family tree showing recessive red hair and blue eyes skipping a generation and resurfacing in the heirs."
               width={1541}
               height={1600}
               loading="lazy"
@@ -152,122 +264,140 @@ export default function Home() {
               resurface from founders further up the tree.
             </figcaption>
           </figure>
+          <p>You can look at a Sim and tell where they came from.</p>
 
           <h2 id="ingame">What you&rsquo;ll see in the game</h2>
           <p>
-            When a baby is born, you&rsquo;ll get a little notification, and then a pop-up
-            that shows you exactly what they inherited and from whom. Don&rsquo;t love the
-            result? There&rsquo;s a <strong>reroll</strong> button. Happy with it? It locks
-            in and sticks &mdash; even when they grow up into a child, teen or adult. No
-            trip into Create-a-Sim required.
+            When a baby is born, you&rsquo;ll get a genetics report showing what they
+            inherited and which side of the family it came from.
+          </p>
+          <p>
+            You can also open the genetics menu to see the family members the system used.
+          </p>
+          <p>
+            It&rsquo;s basically a breakdown of how the Sim ended up looking the way they
+            do.
           </p>
 
           <div className="shots-2">
             <figure>
               <img
                 className="shot"
-                src="/rg-menu-actions.png"
-                alt="In-game Realistic Genetics menu with options: recalculate genetics, view inheritance, save genetics, refresh look."
-                width={984}
-                height={1164}
-                loading="lazy"
-              />
-              <figcaption>The menu for any Sim &mdash; recalculate, view, save, or refresh.</figcaption>
-            </figure>
-            <figure>
-              <img
-                className="shot"
                 src="/rg-menu-inheritance.png"
-                alt="Inheritance breakdown showing which parent or grandparent each of a Sim's features came from."
+                alt="Realistic Genetics birth report in The Sims 4 showing which features the baby inherited and which parent or grandparent each came from."
                 width={988}
                 height={1164}
                 loading="lazy"
               />
-              <figcaption>The breakdown &mdash; exactly who they got each feature from.</figcaption>
+              <figcaption>
+                <b>Birth Genetics Report</b> &mdash; see which features the baby inherited
+                and where they came from.
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                className="shot"
+                src="/rg-menu-actions.png"
+                alt="Realistic Genetics in-game menu in The Sims 4 with options to recalculate genetics, view inheritance, save genetics and refresh a Sim's look."
+                width={984}
+                height={1164}
+                loading="lazy"
+              />
+              <figcaption>
+                <b>Family Genetics View</b> &mdash; see the parents, grandparents and other
+                relatives connected to the Sim&rsquo;s genetics.
+              </figcaption>
             </figure>
           </div>
 
           <div className="dl">
             <h3>Download the beta</h3>
-            <p>Free &middot; The Sims&nbsp;4 base game &middot; safe to remove any time</p>
-            <a className="btn btn-primary" href={DOWNLOAD_URL}>Download RealisticGenetics</a>
+            <p>
+              The main system is working, but this is still a beta. I&rsquo;ve tested it on
+              a lot of different families, but Sims players make some extremely complicated
+              family trees, so I&rsquo;m sure there are situations I haven&rsquo;t run into
+              yet.
+            </p>
+            <p>
+              Back up your save, try it out and send me anything that looks wrong.
+            </p>
+            <a className="btn btn-primary" href={DOWNLOAD_URL}>
+              Download Realistic Genetics
+            </a>
           </div>
 
           <h2 id="install">Installing it</h2>
           <ol className="steps">
-            <li>Download the file above.</li>
+            <li>Download and unzip the file.</li>
             <li>
-              Drop <code>RealisticGenetics.ts4script</code> into your Mods folder &mdash;{" "}
-              <em>Documents &rsaquo; Electronic&nbsp;Arts &rsaquo; The&nbsp;Sims&nbsp;4 &rsaquo; Mods</em>.
+              Put the <code>.package</code> and <code>.ts4script</code> files in{" "}
+              <em>
+                Documents &rsaquo; Electronic&nbsp;Arts &rsaquo; The&nbsp;Sims&nbsp;4
+                &rsaquo; Mods
+              </em>
+              . Don&rsquo;t place the script file more than one folder deep.
             </li>
             <li>
-              In the game, open <em>Options &rsaquo; Game&nbsp;Options &rsaquo; Other</em> and
-              tick both <strong>Enable Custom Content and Mods</strong> and{" "}
-              <strong>Script Mods Allowed</strong>.
+              Make sure <strong>Custom Content and Mods</strong> and{" "}
+              <strong>Script Mods Allowed</strong> are turned on in your game settings.
             </li>
-            <li>Restart the game. That&rsquo;s it &mdash; new babies inherit automatically.</li>
+            <li>Restart the game.</li>
           </ol>
 
           <h2 id="using">Using it</h2>
           <p>
-            For the beta, the menu opens through the cheat console. Press{" "}
-            <code>Ctrl+Shift+C</code>, type a command, and hit Enter:
+            For new babies, you don&rsquo;t have to do anything. The genetics system runs
+            automatically when they&rsquo;re born.
           </p>
-          <ul className="cmd-list">
-            <li>
-              <code>realisticgenetics</code> &mdash; opens the menu for the selected Sim:
-              recalculate their genetics, see what they inherited, save their look, or
-              refresh their appearance.
-            </li>
-            <li>
-              <code>rg.ping</code> &mdash; a quick check that the mod loaded correctly.
-            </li>
-          </ul>
-          <p>A proper click-menu is on the way &mdash; the console is just the beta shortcut.</p>
+          <p>
+            You can also use the tool with an existing multigenerational legacy. It scans up
+            the family tree, captures the parents and grandparents it can find, and builds
+            the genetics from there.
+          </p>
+          <p>
+            <strong>You do not need to start a new save.</strong>
+          </p>
 
           <h2 id="safe">Is it safe for my save?</h2>
           <p>
-            Short version: yes. It keeps its genetics data in its <strong>own separate
-            file</strong>, and the only game data it touches is the same facial information
-            Create-a-Sim already uses. It doesn&rsquo;t jam anything strange into your save,
-            and you can remove it at any time with no lasting damage. I&rsquo;m a software
-            engineer by day, and it runs in my own game before it ever reaches yours.
+            It shouldn&rsquo;t delete Sims, change relationships or rebuild your whole
+            family.
+          </p>
+          <p>
+            That being said, it is still a beta, so please back up your save before testing
+            it &mdash; especially if it&rsquo;s a legacy you&rsquo;ve been playing for
+            years.
+          </p>
+          <p>
+            The system is doing a lot behind the scenes, and there may be weird family
+            setups or mod conflicts I haven&rsquo;t seen yet.
           </p>
 
           <h2 id="faq">Questions</h2>
-          <details className="faq">
-            <summary>Do I need any other mods?</summary>
-            <div className="ans">No. A lot of genetics mods need a separate framework or core library to run &mdash; this one stands on its own. Just the one file.</div>
-          </details>
-          <details className="faq">
-            <summary>Will it work with Sims I already have?</summary>
-            <div className="ans">Yes. Open the menu on any existing Sim and choose recalculate, and it&rsquo;ll work out their genetics from their family.</div>
-          </details>
-          <details className="faq">
-            <summary>Does it fix faces drifting to the same look over generations?</summary>
-            <div className="ans">That&rsquo;s the whole point. Features come from real ancestors, so a family keeps its look across generations instead of sliding back toward the same default face.</div>
-          </details>
-          <details className="faq">
-            <summary>What about ghosts or ancestors who&rsquo;ve died?</summary>
-            <div className="ans">Their stored genetics still get used, so a grandchild can inherit from a grandparent who has already passed on.</div>
-          </details>
-          <details className="faq">
-            <summary>It&rsquo;s a beta &mdash; what does that mean?</summary>
-            <div className="ans">It works, and I play with it every day. I&rsquo;m still smoothing rough edges, so if you hit a bug I&rsquo;d love to hear it &mdash; there&rsquo;s a box below.</div>
-          </details>
+          {FAQ.map((item) => (
+            <details className="faq" key={item.q}>
+              <summary>{item.q}</summary>
+              <div className="ans">{item.a}</div>
+            </details>
+          ))}
 
           <div className="support" id="support">
             <h2>It&rsquo;s just me &mdash; Fox</h2>
             <p>
-              I&rsquo;m a 28-year-old simmer &mdash; I&rsquo;ve been part of the community
-              for almost twenty years. These days I&rsquo;m a software engineer, and
-              I&rsquo;m back in school for genetic engineering, so I wanted to update the
-              Sims&nbsp;4&rsquo;s twelve-year-old genetics system with something real. If
-              something breaks, tell me &mdash; I read every message.
+              I made this because I play long legacy saves, and it always bothered me that
+              genetics basically reset every generation.
             </p>
+            <p>
+              The game can make a child look like their parents, but it doesn&rsquo;t really
+              create a bloodline. Traits don&rsquo;t properly skip generations, grandparents
+              stop mattering and family resemblance slowly disappears.
+            </p>
+            <p>I wanted to be able to look at a Sim and see their family in them.</p>
             <p style={{ marginBottom: 18 }}>
-              <strong>Want to know when the next mod or update lands?</strong> Drop your
-              email &mdash; no spam, no schedule. You can leave a bug or a request here too.
+              It&rsquo;s just me working on the mod, the website, testing and support, so
+              bug reports genuinely help. Send screenshots, explain who everyone is related
+              to and tell me what looked wrong. The more information you give me, the easier
+              it is for me to figure out what happened.
             </p>
             <SignupForm />
           </div>
@@ -283,6 +413,7 @@ export default function Home() {
           <div className="foot-links">
             <a href="#how">How it works</a>
             <a href="#install">Install</a>
+            <a href="#faq">FAQ</a>
           </div>
           <p className="disclaimer">
             The Sims&trade; is a trademark of Electronic Arts Inc. FoxMade is an independent
