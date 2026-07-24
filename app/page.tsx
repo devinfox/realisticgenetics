@@ -1,6 +1,7 @@
 import "./foxmade.css";
 import { Plumbob } from "./plumbob";
 import { SignupForm } from "./signup-form";
+import { Nav } from "./nav";
 
 // Routes through /api/download, which counts the download (no personal data),
 // then redirects to the file in public/. Bump the filename in app/api/download/route.ts.
@@ -30,8 +31,16 @@ const FAQ = [
     a: "Yes. A Sim can carry a trait without showing it and later pass it to their child.",
   },
   {
+    q: "Do babies actually look like their parents now?",
+    a: "That's the whole point. Instead of relying on the game's high random mutation, this Sims 4 genetics mod builds each baby from the family's real hair color, eye color and skin tone, plus facial features pulled from parents and grandparents, so newborns read as part of the family instead of a random roll.",
+  },
+  {
+    q: "Does it work with MC Command Center and other mods?",
+    a: "Yes. Realistic Genetics is a script mod that only steps in when a baby is born or when you open its menu, so it runs alongside MC Command Center (MCCC) and CAS custom content like custom skins, eyes, hair and other Create-a-Sim mods, without taking them over.",
+  },
+  {
     q: "Does it invent traits that aren't in the family?",
-    a: "It won't invent wild or unnatural traits. Recessive traits come from the bloodline — and when an ancestor is missing from the tree, the mod can assume a realistic hidden carrier, which is how recessive genes resurface in real life.",
+    a: "It won't invent wild or unnatural traits. Recessive traits come from the bloodline, and when an ancestor is missing from the tree, the mod can assume a realistic hidden carrier, which is how recessive genes resurface in real life.",
   },
   {
     q: "What does beta mean?",
@@ -45,13 +54,24 @@ const schema = {
     {
       "@type": "SoftwareApplication",
       name: "Realistic Genetics",
+      alternateName: "Realistic Genetics Sims 4 Mod",
       applicationCategory: "GameApplication",
+      applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.14",
+      softwareVersion: "Beta 2.9.30",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
+      image: "https://foxmademods.com/opengraph-image",
+      screenshot: [
+        "https://foxmademods.com/rg-menu-inheritance.png",
+        "https://foxmademods.com/rg-tree-4gen.png",
+      ],
+      keywords:
+        "sims 4 genetics mod, realistic genetics, sims 4 inheritance mod, sims 4 recessive genes, grandparent genetics, sims 4 family tree, babies look like parents",
       author: { "@type": "Person", name: "Fox", url: "https://foxmademods.com" },
+      publisher: { "@type": "Organization", name: "Fox Made Mods", url: "https://foxmademods.com" },
+      isAccessibleForFree: true,
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     },
     {
@@ -73,19 +93,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <nav className="nav">
-        <div className="nav-in">
-          <a className="brand" href="#top">
-            <Plumbob className="pb pb-nav" id="nav" />
-            <b>Fox&nbsp;Made&nbsp;Mods</b>
-          </a>
-          <div className="nav-links">
-            <a href="#how">How it works</a>
-            <a href="#install">Install</a>
-            <a href="#faq">FAQ</a>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       <article id="top">
         <header className="post-head">
@@ -139,7 +147,16 @@ export default function Home() {
           <h2 id="problem">What&rsquo;s wrong with the genetics in the game?</h2>
           <p>
             The genetics in The Sims&nbsp;4 aren&rsquo;t completely random. Kids do inherit
-            features from their parents.
+            features from their parents, but the base game has{" "}
+            <a
+              href="https://sims.fandom.com/wiki/Genetics"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              no real dominant or recessive genes
+            </a>{" "}
+            and a high random mutation rate, so children often drift away from the family
+            they were born into.
           </p>
           <p>The issue is that the game stops there.</p>
           <p>
@@ -417,6 +434,97 @@ export default function Home() {
             </figure>
           </div>
 
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.30)</h2>
+          <p>Performance and inheritance fixes from beta feedback:</p>
+          <ul>
+            <li>
+              <Plumbob className="pb pb-tick" id="p1" />
+              <span>
+                <b>Much faster loading.</b> Loading a save doesn&rsquo;t crawl
+                anymore. The mod used to check every Sim in your whole save on load;
+                now it only touches the Sims it actually has genetics for.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="p2" />
+              <span>
+                <b>No more save or CAS freeze.</b> Saving, entering Create-a-Sim and
+                travelling are quick again. The mod was re-writing all its data every
+                time the game saved (which is constantly); now it only writes when
+                something actually changed. Nothing is lost, it just stops doing
+                pointless work.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="p3" />
+              <span>
+                <b>Same-sex and gallery-parent births inherit properly.</b> Babies
+                from two same-gender parents, MCCC risky woohoo, or a gallery parent
+                now pull genetics from both real parents instead of coming out with no
+                family resemblance.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="p4" />
+              <span>
+                <b>&ldquo;View inheritance&rdquo; works for every Sim, including twins.</b>{" "}
+                Each baby remembers its own breakdown, so siblings don&rsquo;t overwrite
+                each other and an aged-up Sim still shows who they inherited from.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="p5" />
+              <span>
+                <b>Correct pronouns in the report</b> (reads the Sim&rsquo;s actual
+                gender instead of always saying &ldquo;she&rdquo;).
+              </span>
+            </li>
+          </ul>
+          <p>Earlier baby and toddler fixes, still included:</p>
+          <ul>
+            <li>
+              <Plumbob className="pb pb-tick" id="n1" />
+              <span>
+                <b>No more grown-up hair on babies.</b> Newborns now get an
+                age-appropriate style in their inherited color, instead of an
+                adult &rsquo;do stuck on a baby head.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="n2" />
+              <span>
+                <b>Hospital births work.</b> Having a baby at the hospital now
+                runs genetics and shows the report, just like a birth at home.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="n3" />
+              <span>
+                <b>Twins &amp; triplets are each handled.</b> Every baby rolls
+                their own genetics, and you get a separate report for each one,
+                one after another, not just one of them. Works whether you
+                deliver at home <em>or</em> at the hospital.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="n4" />
+              <span>
+                <b>Babies don&rsquo;t look &ldquo;off&rdquo; anymore.</b> Newborns keep the
+                game&rsquo;s normal baby face and grow into their inherited features as
+                they age up (the detailed face can&rsquo;t sit on a baby&rsquo;s head,
+                which is a game limit, so it applies by the teen stage).
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="n5" />
+              <span>
+                <b>Grown-up looks stick.</b> Inherited faces and colors carry
+                through when Sims age up, and edits you make in Create-a-Sim are
+                kept instead of being reverted.
+              </span>
+            </li>
+          </ul>
+
           <div className="dl">
             <h3>Download the beta</h3>
             <p>
@@ -442,7 +550,7 @@ export default function Home() {
                 Documents &rsaquo; Electronic&nbsp;Arts &rsaquo; The&nbsp;Sims&nbsp;4
                 &rsaquo; Mods
               </em>
-              . It&rsquo;s the only file &mdash; there&rsquo;s no <code>.package</code>.
+              . It&rsquo;s the only file. There&rsquo;s no <code>.package</code>.
               Don&rsquo;t place it more than one folder deep.
             </li>
             <li>
@@ -479,6 +587,58 @@ export default function Home() {
           <p>
             The system is doing a lot behind the scenes, and there may be weird family
             setups or mod conflicts I haven&rsquo;t seen yet.
+          </p>
+
+          <h2 id="compat">Compatibility &amp; other Sims 4 mods</h2>
+          <p>
+            Realistic Genetics is a lightweight <em>script mod</em> for The Sims&nbsp;4. It
+            only runs when a baby is born or when you open its menu, so it sits happily
+            alongside the mods most simmers already run, including{" "}
+            <a
+              href="https://deaderpool-mccc.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MC&nbsp;Command&nbsp;Center (MCCC)
+            </a>{" "}
+            and Create-a-Sim custom content like custom skins, eyes and hair.
+          </p>
+          <p>
+            New to Sims&nbsp;4 mods, or looking for more to pair with it? These are the
+            trusted communities simmers download from:{" "}
+            <a
+              href="https://modthesims.info"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ModTheSims
+            </a>
+            ,{" "}
+            <a
+              href="https://www.curseforge.com/sims4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CurseForge
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://www.nexusmods.com/games/thesims4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Nexus&nbsp;Mods
+            </a>
+            . And if you want the full detail on how the base game handles inheritance and
+            its random mutation rate, the{" "}
+            <a
+              href="https://sims.fandom.com/wiki/Genetics"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Sims Wiki genetics page
+            </a>{" "}
+            is worth a read.
           </p>
 
           <h2 id="faq">Questions</h2>

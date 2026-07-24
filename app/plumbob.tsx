@@ -1,20 +1,14 @@
-export function Plumbob({ className, id }: { className: string; id: string }) {
+// Canonical plumbob: a clean, symmetric faceted diamond. Geometry and facet
+// colors are identical to the favicon (app/icon.svg) — flat 4-facet shading,
+// left column mid tones, right column the lightest/darkest. Uses theme vars so
+// it matches the favicon in light mode and stays legible in dark mode.
+export function Plumbob({ className }: { className: string; id?: string }) {
   return (
-    <svg className={className} viewBox="0 0 100 150" aria-hidden="true" focusable="false">
-      <defs>
-        <linearGradient id={`pbl-${id}`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="var(--pb-light)" />
-          <stop offset="1" stopColor="var(--pb-dark)" />
-        </linearGradient>
-        <linearGradient id={`pbr-${id}`} x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="var(--pb-lightest)" />
-          <stop offset="1" stopColor="var(--pb-mid)" />
-        </linearGradient>
-      </defs>
-      <polygon points="50,3 9,53 50,53" fill={`url(#pbl-${id})`} />
-      <polygon points="50,3 91,53 50,53" fill={`url(#pbr-${id})`} />
-      <polygon points="9,53 50,53 50,147" fill={`url(#pbr-${id})`} />
-      <polygon points="91,53 50,53 50,147" fill={`url(#pbl-${id})`} />
+    <svg className={className} viewBox="0 0 60 90" aria-hidden="true" focusable="false">
+      <polygon points="30,0 0,36 30,36" fill="var(--pb-light)" />
+      <polygon points="30,0 60,36 30,36" fill="var(--pb-lightest)" />
+      <polygon points="0,36 30,36 30,90" fill="var(--pb-mid)" />
+      <polygon points="60,36 30,36 30,90" fill="var(--pb-dark)" />
     </svg>
   );
 }
