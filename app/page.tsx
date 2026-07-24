@@ -61,7 +61,7 @@ const schema = {
       applicationCategory: "GameApplication",
       applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.30",
+      softwareVersion: "Beta 2.9.35",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
@@ -462,8 +462,42 @@ export default function Home() {
             </figure>
           </div>
 
-          <h2 id="whatsnew">Fixed in this update (Beta 2.9.30)</h2>
-          <p>Performance and inheritance fixes from beta feedback:</p>
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.35)</h2>
+          <p>A tuning pass on hair and facial sculpts:</p>
+          <ul>
+            <li>
+              <Plumbob className="pb pb-tick" id="n1" />
+              <span>
+                <b>Sims keep their own hairstyle.</b> When a Sim inherits a family
+                hair color, only the color changes now &mdash; they keep the exact cut
+                they were wearing, in the right style for their age and gender.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="n2" />
+              <span>
+                <b>Gray hair from aging isn&rsquo;t inherited.</b> An older Sim&rsquo;s
+                gray is no longer mistaken for their family&rsquo;s natural hair color
+                and passed down to grandchildren.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="n3" />
+              <span>
+                <b>Better hair color matching.</b> Including shades like
+                salt-and-pepper and the warmer browns and blondes.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="n4" />
+              <span>
+                <b>Fine-tuned facial sculpts.</b> Better coverage when a child takes a
+                feature from a relative of the opposite gender.
+              </span>
+            </li>
+          </ul>
+
+          <h3>Earlier in this beta (2.9.30)</h3>
           <ul>
             <li>
               <Plumbob className="pb pb-tick" id="p1" />
