@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Plumbob } from "./plumbob";
 
+const DISCORD_URL = "https://discord.com/invite/xv5MFKJrWd";
+
 // Top nav. On desktop the links sit inline; below the mobile breakpoint they
 // collapse into a hamburger that toggles a dropdown (see .nav-burger / .nav-links
 // in foxmade.css). Tapping a link or the brand closes the menu.
@@ -45,6 +47,15 @@ export function Nav() {
           </a>
           <a href="#faq" onClick={close}>
             FAQ
+          </a>
+          <a
+            className="nav-discord"
+            href={DISCORD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={close}
+          >
+            Community
           </a>
         </div>
       </div>
