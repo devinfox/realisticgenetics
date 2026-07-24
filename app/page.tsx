@@ -61,7 +61,7 @@ const schema = {
       applicationCategory: "GameApplication",
       applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.35",
+      softwareVersion: "Beta 2.9.36",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
@@ -462,9 +462,18 @@ export default function Home() {
             </figure>
           </div>
 
-          <h2 id="whatsnew">Fixed in this update (Beta 2.9.35)</h2>
-          <p>A tuning pass on hair and facial sculpts:</p>
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.36)</h2>
+          <p>Important fix if you use MC Command Center, plus hair and sculpt tuning:</p>
           <ul>
+            <li>
+              <Plumbob className="pb pb-tick" id="n0" />
+              <span>
+                <b>Fixed births failing with MC Command Center.</b> The mother would
+                reset, no baby would appear, and after reloading a child showed up with
+                the name you picked but wasn&rsquo;t linked to its parents and looked
+                nothing like the family. If that happened to you, this fixes the cause.
+              </span>
+            </li>
             <li>
               <Plumbob className="pb pb-tick" id="n1" />
               <span>
