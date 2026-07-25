@@ -61,7 +61,7 @@ const schema = {
       applicationCategory: "GameApplication",
       applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.55",
+      softwareVersion: "Beta 2.9.60",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
@@ -462,7 +462,7 @@ export default function Home() {
             </figure>
           </div>
 
-          <h2 id="whatsnew">Fixed in this update (Beta 2.9.55)</h2>
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.60)</h2>
           <p>
             Faces were coming out same-y no matter who was in the family. That&rsquo;s
             what this update fixes.
@@ -493,10 +493,27 @@ export default function Home() {
               </span>
             </li>
           </ul>
-          <p>
-            If your existing Sims still look off, re-roll them &ndash; they&rsquo;re
-            carrying the old data until you do.
-          </p>
+
+          <div className="callout">
+            <p>
+              <b>Already using an earlier beta?</b> Before you install this one,
+              delete the folder{" "}
+              <code>Mods/mod_data/RealisticGenetics</code>.
+            </p>
+            <p>
+              Earlier betas saved their own copies of your Sims&rsquo; faces, and
+              those old copies can override the new results &ndash; a Sim keeps
+              snapping back to an odd face no matter what you do. Deleting the folder
+              clears them out.
+            </p>
+            <p>
+              It&rsquo;s safe. Your Sims keep the faces they already have &ndash; that
+              lives in your save, not in that folder. The mod just forgets its own
+              saved copies and starts fresh, so re-roll a Sim to give them the
+              improved genetics. Installing for the first time? Ignore this, there&rsquo;s
+              nothing to delete.
+            </p>
+          </div>
 
           <h3>Earlier in this beta (2.9.46)</h3>
           <ul>
