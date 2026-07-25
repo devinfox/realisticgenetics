@@ -61,7 +61,7 @@ const schema = {
       applicationCategory: "GameApplication",
       applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.72",
+      softwareVersion: "Beta 2.9.74",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
@@ -462,37 +462,51 @@ export default function Home() {
             </figure>
           </div>
 
-          <h2 id="whatsnew">Fixed in this update (Beta 2.9.72)</h2>
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.74)</h2>
           <p>
-            The newborn card now tells you who each feature came from, and the mod
-            plays better alongside MC Command Center.
+            Two fixes: births that ended with no baby, and the re-roll button on the
+            newborn card.
           </p>
           <ul>
             <li>
               <Plumbob className="pb pb-tick" id="g1" />
               <span>
-                <b>The newborn card tells you who each feature came from.</b> When a
-                baby was born the card said no features against everyone &ndash; the
-                parents included &ndash; and only read properly once the Sim grew up.
-                Sometimes it showed the previous Sim&rsquo;s relatives instead, which
-                is why it seemed to work now and then. The inheritance itself was
-                always correct; only the card was wrong. The baby&rsquo;s face still
-                changes at the teen birthday as before, so the card is a preview of
-                what&rsquo;s coming.
+                <b>Births that ended with no baby.</b> Some births finished with an
+                empty bassinet &ndash; no baby, the mother resetting, and the child
+                missing from the family tree. It could happen on its own or alongside
+                MC Command Center. Fixed.
               </span>
             </li>
             <li>
               <Plumbob className="pb pb-tick" id="g2" />
               <span>
-                <b>Better behaved with MC Command Center.</b> Realistic Genetics and
-                MCCC both adjust the same part of the game when a baby is created.
-                Depending on which of them the game loaded first, that could fail
-                &ndash; and when it did, the baby was never finished being made: no
-                baby, the mother acting strangely, and the child missing from the
-                family tree. It now works whichever order they load in.
+                <b>Re-roll on the newborn card actually re-rolls now.</b> Pressing the
+                dice gave you the same relatives every time. It rolls a fresh
+                combination each press now. On a baby you&rsquo;ll see the family names
+                on the card change rather than the face &ndash; faces still arrive at
+                the teen birthday, as before.
               </span>
             </li>
           </ul>
+
+          <div className="callout">
+            <p>
+              <b>After a baby is born</b> and you&rsquo;ve saved their genetics from the
+              card, <b>save your game straight away</b> so it&rsquo;s locked in. And if
+              you end up with more children than you meant to, go into CAS and delete
+              the extra one.
+            </p>
+          </div>
+
+          <div className="callout">
+            <p>
+              <b>Known issue I&rsquo;m working on.</b> If you use MC Command Center to
+              pick the baby&rsquo;s gender, you can end up with an extra baby you
+              didn&rsquo;t ask for &ndash; and that extra one may not show up in CAS and
+              can disappear afterwards. I&rsquo;m still working out whether that&rsquo;s
+              MCCC, my mod, or the two together. Normal births aren&rsquo;t affected.
+            </p>
+          </div>
 
           <div className="callout">
             <p>
@@ -525,6 +539,10 @@ export default function Home() {
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <th>2.9.72</th>
+                  <td>The newborn card tells you which relative each feature came from, instead of showing nothing or the previous Sim&rsquo;s family.</td>
+                </tr>
                 <tr>
                   <th>2.9.68</th>
                   <td>Faces stopped resetting after a trip through CAS, edits made in CAS stick, bodies are no longer exaggerated, and the mod keeps its data in one folder.</td>
