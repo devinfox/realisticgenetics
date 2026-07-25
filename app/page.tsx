@@ -61,7 +61,7 @@ const schema = {
       applicationCategory: "GameApplication",
       applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.68",
+      softwareVersion: "Beta 2.9.71",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
@@ -462,49 +462,18 @@ export default function Home() {
             </figure>
           </div>
 
-          <h2 id="whatsnew">Fixed in this update (Beta 2.9.68)</h2>
-          <p>
-            Faces stop resetting when you come out of CAS, and edits you make in
-            there stay put.
-          </p>
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.71)</h2>
+          <p>Plays better alongside MC Command Center.</p>
           <ul>
             <li>
               <Plumbob className="pb pb-tick" id="g1" />
               <span>
-                <b>Faces no longer reset after a trip through CAS.</b> Every time a
-                Sim went into CAS and came out, the game was deleting the jaw shape
-                the mod had given them and swapping out the cheek shape. Losing those
-                two was enough to visibly reset the face &ndash; and it happened even
-                if you went in and changed nothing. Those two are left to the game
-                now. Both still inherit through their sliders, so a Sim still gets
-                their family&rsquo;s jawline and cheekbones.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="g2" />
-              <span>
-                <b>Edits you make in CAS stick.</b> Go in, change whatever you like,
-                save, and it stays. Earlier betas would put the mod&rsquo;s rolled face
-                back over the top of your changes.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="g3" />
-              <span>
-                <b>Bodies aren&rsquo;t exaggerated anymore.</b> Body sliders were
-                piling up from every relative instead of coming from one, so Sims came
-                out with the bust, waist and hips of six different people stacked
-                together. A Sim now carries about one body&rsquo;s worth.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="g4" />
-              <span>
-                <b>The mod keeps its data in one folder.</b> It used to write to a new
-                folder whenever the game reported a different save slot, and an old
-                copy in one of the others could override the new results. Any folders
-                you already have get merged automatically the first time you load a
-                save, and nothing is deleted.
+                <b>Better behaved with MC Command Center.</b> Realistic Genetics and
+                MCCC both adjust the same part of the game when a baby is created.
+                Depending on which of them the game loaded first, that could fail
+                &ndash; and when it did, the baby was never finished being made: no
+                baby, the mother acting strangely, and the child missing from the
+                family tree. It now works whichever order they load in.
               </span>
             </li>
           </ul>
@@ -530,214 +499,39 @@ export default function Home() {
             </p>
           </div>
 
-          <h3>Earlier in this beta (2.9.64)</h3>
-          <p>
-            More of a Sim&rsquo;s face now comes from the relative it&rsquo;s
-            supposed to come from.
-          </p>
-          <ul>
-            <li>
-              <Plumbob className="pb pb-tick" id="e1" />
-              <span>
-                <b>Chins and cheeks pass down between sons and daughters.</b> A
-                daughter could inherit her grandfather&rsquo;s chin and the game would
-                quietly throw it away, because the mod had no way to translate a male
-                chin into its female equivalent. It does now &ndash; for chins, and for
-                cheeks as a start.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="e2" />
-              <span>
-                <b>Fixed sliders filed under the wrong part of the face.</b> Seven of
-                them. One example: a slider that shapes the jaw was filed under the
-                nose, so part of a Sim&rsquo;s jaw came from whoever gave them their
-                nose instead. Brow detail wasn&rsquo;t recognised at all and drifted to
-                a random relative.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="e3" />
-              <span>
-                <b>Stopped a Sim snapping back to the same odd face</b> however many
-                times you re-rolled. The mod was saving a face the game had rebuilt,
-                then restoring it forever after.
-              </span>
-            </li>
-          </ul>
-
-          <h3>Earlier in this beta (2.9.62)</h3>
-          <ul>
-            <li>
-              <Plumbob className="pb pb-tick" id="f1" />
-              <span>
-                <b>Kids actually look like the relative they got each feature from.</b>{" "}
-                If a child gets her grandma&rsquo;s nose, it&rsquo;s grandma&rsquo;s
-                nose &ndash; not a blend of five different people.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="f2" />
-              <span>
-                <b>Re-rolling a face works properly now.</b> It used to build on top
-                of the last roll, so after a few goes the face barely changed. You
-                get a clean result every time.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="f3" />
-              <span>
-                <b>Noses, lips and jaws come out right.</b> Bits of the fine detail
-                were being taken from the wrong relative, which is what made everyone
-                drift toward the same face.
-              </span>
-            </li>
-          </ul>
-
-          <h3>Earlier in this beta (2.9.46)</h3>
-          <ul>
-            <li>
-              <Plumbob className="pb pb-tick" id="r1" />
-              <span>
-                <b>Sims keep their own hairstyle.</b> When a Sim inherits a family
-                hair color, only the color changes now &ndash; they keep the exact cut
-                they were wearing, in the right style for their age and gender.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="r2" />
-              <span>
-                <b>Much better hair color matching.</b> Hair, eyebrow and facial hair
-                colors are read from the game&rsquo;s own color data instead of being
-                guessed, covering thousands more hairstyles and shades like
-                salt-and-pepper and the warmer browns and blondes.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="r3" />
-              <span>
-                <b>Gray hair from aging isn&rsquo;t inherited.</b> An older Sim&rsquo;s
-                gray is no longer mistaken for their family&rsquo;s natural hair color.
-                The mod reads their eyebrows to find the color they had before they
-                went gray.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="r4" />
-              <span>
-                <b>Better cross-gender features.</b> A child can now inherit cheeks,
-                chin, brow and jaw from a relative of the opposite gender, which
-                wasn&rsquo;t possible for those features before.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="r5" />
-              <span>
-                <b>Fixed births failing with MC Command Center.</b> The mother would
-                reset, no baby would appear, and after reloading a child showed up with
-                the name you picked but wasn&rsquo;t linked to its parents and looked
-                nothing like the family. This fixes the cause.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="r6" />
-              <span>
-                <b>Occult eye colors stay occult.</b> Vampire, alien, mermaid and fairy
-                eyes are now identified exactly rather than guessed, so they stay out of
-                normal family inheritance.
-              </span>
-            </li>
-          </ul>
-
-          <h3>Earlier in this beta (2.9.30)</h3>
-          <ul>
-            <li>
-              <Plumbob className="pb pb-tick" id="p1" />
-              <span>
-                <b>Much faster loading.</b> Loading a save doesn&rsquo;t crawl
-                anymore. The mod used to check every Sim in your whole save on load;
-                now it only touches the Sims it actually has genetics for.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="p2" />
-              <span>
-                <b>No more save or CAS freeze.</b> Saving, entering Create-a-Sim and
-                travelling are quick again. The mod was re-writing all its data every
-                time the game saved (which is constantly); now it only writes when
-                something actually changed. Nothing is lost, it just stops doing
-                pointless work.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="p3" />
-              <span>
-                <b>Same-sex and gallery-parent births inherit properly.</b> Babies
-                from two same-gender parents, MCCC risky woohoo, or a gallery parent
-                now pull genetics from both real parents instead of coming out with no
-                family resemblance.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="p4" />
-              <span>
-                <b>&ldquo;View inheritance&rdquo; works for every Sim, including twins.</b>{" "}
-                Each baby remembers its own breakdown, so siblings don&rsquo;t overwrite
-                each other and an aged-up Sim still shows who they inherited from.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="p5" />
-              <span>
-                <b>Correct pronouns in the report</b> (reads the Sim&rsquo;s actual
-                gender instead of always saying &ldquo;she&rdquo;).
-              </span>
-            </li>
-          </ul>
-          <p>Earlier baby and toddler fixes, still included:</p>
-          <ul>
-            <li>
-              <Plumbob className="pb pb-tick" id="n1" />
-              <span>
-                <b>No more grown-up hair on babies.</b> Newborns now get an
-                age-appropriate style in their inherited color, instead of an
-                adult &rsquo;do stuck on a baby head.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="n2" />
-              <span>
-                <b>Hospital births work.</b> Having a baby at the hospital now
-                runs genetics and shows the report, just like a birth at home.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="n3" />
-              <span>
-                <b>Twins &amp; triplets are each handled.</b> Every baby rolls
-                their own genetics, and you get a separate report for each one,
-                one after another, not just one of them. Works whether you
-                deliver at home <em>or</em> at the hospital.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="n4" />
-              <span>
-                <b>Babies don&rsquo;t look &ldquo;off&rdquo; anymore.</b> Newborns keep the
-                game&rsquo;s normal baby face and grow into their inherited features as
-                they age up (the detailed face can&rsquo;t sit on a baby&rsquo;s head,
-                which is a game limit, so it applies by the teen stage).
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="n5" />
-              <span>
-                <b>Grown-up looks stick.</b> Inherited faces and colors carry
-                through when Sims age up, and edits you make in Create-a-Sim are
-                kept instead of being reverted.
-              </span>
-            </li>
-          </ul>
+          <h3>Earlier in this beta</h3>
+          <div className="chg-wrap">
+            <table className="chg">
+              <thead>
+                <tr>
+                  <th>Version</th>
+                  <th>What changed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>2.9.68</th>
+                  <td>Faces stopped resetting after a trip through CAS, edits made in CAS stick, bodies are no longer exaggerated, and the mod keeps its data in one folder.</td>
+                </tr>
+                <tr>
+                  <th>2.9.64</th>
+                  <td>Chins and cheeks pass down between sons and daughters. Seven sliders were filed under the wrong part of the face. Stopped a Sim snapping back to the same odd face.</td>
+                </tr>
+                <tr>
+                  <th>2.9.62</th>
+                  <td>Kids look like the relative they got each feature from. Re-rolling a face works properly. Noses, lips and jaws come out right.</td>
+                </tr>
+                <tr>
+                  <th>2.9.46</th>
+                  <td>Sims keep their own hairstyle. Much better hair colour matching. Grey hair from aging isn&rsquo;t inherited. Better cross-gender features. Fixed births failing with MC Command Center. Occult eye colours stay occult.</td>
+                </tr>
+                <tr>
+                  <th>2.9.30</th>
+                  <td>Much faster loading, and no more save or CAS freeze. Same-sex and gallery-parent births inherit properly. Hospital births work. Twins and triplets each handled. Babies no longer look off, and grown-up looks stick.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <div className="dl">
             <h3>Download the beta</h3>

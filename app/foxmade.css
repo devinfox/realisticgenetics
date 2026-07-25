@@ -250,3 +250,15 @@ body{background:var(--bg)}
   .fm .prose p.callout{text-align:left}
   .fm .cmp figcaption{text-align:center}
 }
+
+/* ---- changelog table (condensed release history) ---- */
+.chg-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.1rem 0 1.4rem}
+.chg{width:100%;border-collapse:collapse;font-size:.95rem;min-width:34rem}
+.chg th,.chg td{text-align:left;vertical-align:top;padding:.6rem .8rem;border-bottom:1px solid var(--border-soft)}
+.chg thead th{font-family:var(--fm-display);font-weight:600;color:var(--muted);
+  font-size:.82rem;letter-spacing:.02em;text-transform:uppercase;
+  border-bottom:1px solid var(--border);white-space:nowrap}
+.chg tbody th{font-weight:600;color:var(--accent-quiet);white-space:nowrap;width:1%;
+  font-variant-numeric:tabular-nums}
+.chg td{color:var(--ink-soft)}
+.chg tbody tr:last-child th,.chg tbody tr:last-child td{border-bottom:0}
