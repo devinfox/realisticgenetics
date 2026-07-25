@@ -61,7 +61,7 @@ const schema = {
       applicationCategory: "GameApplication",
       applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.36",
+      softwareVersion: "Beta 2.9.44",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
@@ -462,46 +462,58 @@ export default function Home() {
             </figure>
           </div>
 
-          <h2 id="whatsnew">Fixed in this update (Beta 2.9.36)</h2>
-          <p>Important fix if you use MC Command Center, plus hair and sculpt tuning:</p>
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.44)</h2>
+          <p>Hair, faces and compatibility:</p>
           <ul>
             <li>
-              <Plumbob className="pb pb-tick" id="n0" />
-              <span>
-                <b>Fixed births failing with MC Command Center.</b> The mother would
-                reset, no baby would appear, and after reloading a child showed up with
-                the name you picked but wasn&rsquo;t linked to its parents and looked
-                nothing like the family. If that happened to you, this fixes the cause.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="n1" />
+              <Plumbob className="pb pb-tick" id="r1" />
               <span>
                 <b>Sims keep their own hairstyle.</b> When a Sim inherits a family
-                hair color, only the color changes now &mdash; they keep the exact cut
+                hair color, only the color changes now &ndash; they keep the exact cut
                 they were wearing, in the right style for their age and gender.
               </span>
             </li>
             <li>
-              <Plumbob className="pb pb-tick" id="n2" />
+              <Plumbob className="pb pb-tick" id="r2" />
               <span>
-                <b>Gray hair from aging isn&rsquo;t inherited.</b> An older Sim&rsquo;s
-                gray is no longer mistaken for their family&rsquo;s natural hair color
-                and passed down to grandchildren.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="n3" />
-              <span>
-                <b>Better hair color matching.</b> Including shades like
+                <b>Much better hair color matching.</b> Hair, eyebrow and facial hair
+                colors are read from the game&rsquo;s own color data instead of being
+                guessed, covering thousands more hairstyles and shades like
                 salt-and-pepper and the warmer browns and blondes.
               </span>
             </li>
             <li>
-              <Plumbob className="pb pb-tick" id="n4" />
+              <Plumbob className="pb pb-tick" id="r3" />
               <span>
-                <b>Fine-tuned facial sculpts.</b> Better coverage when a child takes a
-                feature from a relative of the opposite gender.
+                <b>Gray hair from aging isn&rsquo;t inherited.</b> An older Sim&rsquo;s
+                gray is no longer mistaken for their family&rsquo;s natural hair color.
+                The mod reads their eyebrows to find the color they had before they
+                went gray.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="r4" />
+              <span>
+                <b>Better cross-gender features.</b> A child can now inherit cheeks,
+                chin, brow and jaw from a relative of the opposite gender, which
+                wasn&rsquo;t possible for those features before.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="r5" />
+              <span>
+                <b>Fixed births failing with MC Command Center.</b> The mother would
+                reset, no baby would appear, and after reloading a child showed up with
+                the name you picked but wasn&rsquo;t linked to its parents and looked
+                nothing like the family. This fixes the cause.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="r6" />
+              <span>
+                <b>Occult eye colors stay occult.</b> Vampire, alien, mermaid and fairy
+                eyes are now identified exactly rather than guessed, so they stay out of
+                normal family inheritance.
               </span>
             </li>
           </ul>
