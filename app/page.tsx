@@ -61,7 +61,7 @@ const schema = {
       applicationCategory: "GameApplication",
       applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.64",
+      softwareVersion: "Beta 2.9.68",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
@@ -462,40 +462,49 @@ export default function Home() {
             </figure>
           </div>
 
-          <h2 id="whatsnew">Fixed in this update (Beta 2.9.64)</h2>
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.68)</h2>
           <p>
-            More of a Sim&rsquo;s face now comes from the relative it&rsquo;s
-            supposed to come from.
+            Faces stop resetting when you come out of CAS, and edits you make in
+            there stay put.
           </p>
           <ul>
             <li>
               <Plumbob className="pb pb-tick" id="g1" />
               <span>
-                <b>Chins and cheeks pass down between sons and daughters.</b> A
-                daughter could inherit her grandfather&rsquo;s chin and the game would
-                quietly throw it away, because the mod had no way to translate a male
-                chin into its female equivalent. It does now &ndash; for chins, and for
-                cheeks as a start.
+                <b>Faces no longer reset after a trip through CAS.</b> Every time a
+                Sim went into CAS and came out, the game was deleting the jaw shape
+                the mod had given them and swapping out the cheek shape. Losing those
+                two was enough to visibly reset the face &ndash; and it happened even
+                if you went in and changed nothing. Those two are left to the game
+                now. Both still inherit through their sliders, so a Sim still gets
+                their family&rsquo;s jawline and cheekbones.
               </span>
             </li>
             <li>
               <Plumbob className="pb pb-tick" id="g2" />
               <span>
-                <b>Fixed sliders filed under the wrong part of the face.</b> Seven of
-                them. One example: a slider that shapes the jaw was filed under the
-                nose, so part of a Sim&rsquo;s jaw came from whoever gave them their
-                nose instead. Brow detail wasn&rsquo;t recognised at all and drifted to
-                a random relative.
+                <b>Edits you make in CAS stick.</b> Go in, change whatever you like,
+                save, and it stays. Earlier betas would put the mod&rsquo;s rolled face
+                back over the top of your changes.
               </span>
             </li>
             <li>
               <Plumbob className="pb pb-tick" id="g3" />
               <span>
-                <b>Faces keep what you do to them in CAS.</b> Edit a Sim and save, and
-                the edit sticks. If the game rebuilds the face on its way out, the mod
-                puts your rolled face back instead of saving the rebuilt one &ndash;
-                that was behind a Sim snapping back to the same odd face however many
-                times you re-rolled.
+                <b>Bodies aren&rsquo;t exaggerated anymore.</b> Body sliders were
+                piling up from every relative instead of coming from one, so Sims came
+                out with the bust, waist and hips of six different people stacked
+                together. A Sim now carries about one body&rsquo;s worth.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="g4" />
+              <span>
+                <b>The mod keeps its data in one folder.</b> It used to write to a new
+                folder whenever the game reported a different save slot, and an old
+                copy in one of the others could override the new results. Any folders
+                you already have get merged automatically the first time you load a
+                save, and nothing is deleted.
               </span>
             </li>
           </ul>
@@ -510,7 +519,8 @@ export default function Home() {
               Earlier betas saved their own copies of your Sims&rsquo; faces, and an old
               copy can override the new results &ndash; a Sim keeps snapping back to an
               odd face no matter what you do. This clears them out across every save
-              folder, and backs them up first.
+              folder, and backs them up first. This version also merges those folders
+              into one by itself when you first load a save.
             </p>
             <p>
               It&rsquo;s safe. Your Sims keep the faces they already have &ndash; that
@@ -519,6 +529,42 @@ export default function Home() {
               this.
             </p>
           </div>
+
+          <h3>Earlier in this beta (2.9.64)</h3>
+          <p>
+            More of a Sim&rsquo;s face now comes from the relative it&rsquo;s
+            supposed to come from.
+          </p>
+          <ul>
+            <li>
+              <Plumbob className="pb pb-tick" id="e1" />
+              <span>
+                <b>Chins and cheeks pass down between sons and daughters.</b> A
+                daughter could inherit her grandfather&rsquo;s chin and the game would
+                quietly throw it away, because the mod had no way to translate a male
+                chin into its female equivalent. It does now &ndash; for chins, and for
+                cheeks as a start.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="e2" />
+              <span>
+                <b>Fixed sliders filed under the wrong part of the face.</b> Seven of
+                them. One example: a slider that shapes the jaw was filed under the
+                nose, so part of a Sim&rsquo;s jaw came from whoever gave them their
+                nose instead. Brow detail wasn&rsquo;t recognised at all and drifted to
+                a random relative.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="e3" />
+              <span>
+                <b>Stopped a Sim snapping back to the same odd face</b> however many
+                times you re-rolled. The mod was saving a face the game had rebuilt,
+                then restoring it forever after.
+              </span>
+            </li>
+          </ul>
 
           <h3>Earlier in this beta (2.9.62)</h3>
           <ul>
