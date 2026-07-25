@@ -61,7 +61,7 @@ const schema = {
       applicationCategory: "GameApplication",
       applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.44",
+      softwareVersion: "Beta 2.9.46",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
@@ -462,7 +462,7 @@ export default function Home() {
             </figure>
           </div>
 
-          <h2 id="whatsnew">Fixed in this update (Beta 2.9.44)</h2>
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.46)</h2>
           <p>Hair, faces and compatibility:</p>
           <ul>
             <li>
