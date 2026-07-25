@@ -3,8 +3,8 @@
 
 export const dynamic = "force-dynamic";
 
-const FILE_PATH = "/RealisticGenetics_Beta_v2.9.45.zip";
-const FILE_LABEL = "RealisticGenetics_Beta_v2.9.45";
+const FILE_PATH = "/RealisticGenetics_Beta_v2.9.46.zip";
+const FILE_LABEL = "RealisticGenetics_Beta_v2.9.46";
 
 export async function GET(request: Request) {
   const url = process.env.SUPABASE_URL;
