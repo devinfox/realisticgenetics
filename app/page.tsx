@@ -61,7 +61,7 @@ const schema = {
       applicationCategory: "GameApplication",
       applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.62",
+      softwareVersion: "Beta 2.9.64",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
@@ -462,11 +462,65 @@ export default function Home() {
             </figure>
           </div>
 
-          <h2 id="whatsnew">Fixed in this update (Beta 2.9.62)</h2>
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.64)</h2>
           <p>
-            Faces were coming out same-y no matter who was in the family. That&rsquo;s
-            what this update fixes.
+            More of a Sim&rsquo;s face now comes from the relative it&rsquo;s
+            supposed to come from.
           </p>
+          <ul>
+            <li>
+              <Plumbob className="pb pb-tick" id="g1" />
+              <span>
+                <b>Chins and cheeks pass down between sons and daughters.</b> A
+                daughter could inherit her grandfather&rsquo;s chin and the game would
+                quietly throw it away, because the mod had no way to translate a male
+                chin into its female equivalent. It does now &ndash; for chins, and for
+                cheeks as a start.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="g2" />
+              <span>
+                <b>Fixed sliders filed under the wrong part of the face.</b> Seven of
+                them. One example: a slider that shapes the jaw was filed under the
+                nose, so part of a Sim&rsquo;s jaw came from whoever gave them their
+                nose instead. Brow detail wasn&rsquo;t recognised at all and drifted to
+                a random relative.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="g3" />
+              <span>
+                <b>Faces keep what you do to them in CAS.</b> Edit a Sim and save, and
+                the edit sticks. If the game rebuilds the face on its way out, the mod
+                puts your rolled face back instead of saving the rebuilt one &ndash;
+                that was behind a Sim snapping back to the same odd face however many
+                times you re-rolled.
+              </span>
+            </li>
+          </ul>
+
+          <div className="callout">
+            <p>
+              <b>Used an earlier beta?</b> Run <code>rg.clearmemory</code> once in the
+              cheat console after updating, or pick <b>Clear saved faces</b> from the
+              Realistic Genetics menu.
+            </p>
+            <p>
+              Earlier betas saved their own copies of your Sims&rsquo; faces, and an old
+              copy can override the new results &ndash; a Sim keeps snapping back to an
+              odd face no matter what you do. This clears them out across every save
+              folder, and backs them up first.
+            </p>
+            <p>
+              It&rsquo;s safe. Your Sims keep the faces they already have &ndash; that
+              lives in your save, not in the mod&rsquo;s folder. Re-roll a Sim to give
+              them the improved genetics. Installing for the first time? You can ignore
+              this.
+            </p>
+          </div>
+
+          <h3>Earlier in this beta (2.9.62)</h3>
           <ul>
             <li>
               <Plumbob className="pb pb-tick" id="f1" />
@@ -493,27 +547,6 @@ export default function Home() {
               </span>
             </li>
           </ul>
-
-          <div className="callout">
-            <p>
-              <b>Already using an earlier beta?</b> Before you install this one,
-              delete the folder{" "}
-              <code>Mods/mod_data/RealisticGenetics</code>.
-            </p>
-            <p>
-              Earlier betas saved their own copies of your Sims&rsquo; faces, and
-              those old copies can override the new results &ndash; a Sim keeps
-              snapping back to an odd face no matter what you do. Deleting the folder
-              clears them out.
-            </p>
-            <p>
-              It&rsquo;s safe. Your Sims keep the faces they already have &ndash; that
-              lives in your save, not in that folder. The mod just forgets its own
-              saved copies and starts fresh, so re-roll a Sim to give them the
-              improved genetics. Installing for the first time? Ignore this, there&rsquo;s
-              nothing to delete.
-            </p>
-          </div>
 
           <h3>Earlier in this beta (2.9.46)</h3>
           <ul>
