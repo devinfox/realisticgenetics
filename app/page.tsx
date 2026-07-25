@@ -61,7 +61,7 @@ const schema = {
       applicationCategory: "GameApplication",
       applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.71",
+      softwareVersion: "Beta 2.9.72",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
@@ -462,11 +462,27 @@ export default function Home() {
             </figure>
           </div>
 
-          <h2 id="whatsnew">Fixed in this update (Beta 2.9.71)</h2>
-          <p>Plays better alongside MC Command Center.</p>
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.72)</h2>
+          <p>
+            The newborn card now tells you who each feature came from, and the mod
+            plays better alongside MC Command Center.
+          </p>
           <ul>
             <li>
               <Plumbob className="pb pb-tick" id="g1" />
+              <span>
+                <b>The newborn card tells you who each feature came from.</b> When a
+                baby was born the card said no features against everyone &ndash; the
+                parents included &ndash; and only read properly once the Sim grew up.
+                Sometimes it showed the previous Sim&rsquo;s relatives instead, which
+                is why it seemed to work now and then. The inheritance itself was
+                always correct; only the card was wrong. The baby&rsquo;s face still
+                changes at the teen birthday as before, so the card is a preview of
+                what&rsquo;s coming.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="g2" />
               <span>
                 <b>Better behaved with MC Command Center.</b> Realistic Genetics and
                 MCCC both adjust the same part of the game when a baby is created.
