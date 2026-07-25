@@ -61,7 +61,7 @@ const schema = {
       applicationCategory: "GameApplication",
       applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.46",
+      softwareVersion: "Beta 2.9.55",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
@@ -462,8 +462,79 @@ export default function Home() {
             </figure>
           </div>
 
-          <h2 id="whatsnew">Fixed in this update (Beta 2.9.46)</h2>
-          <p>Hair, faces and compatibility:</p>
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.55)</h2>
+          <p>
+            Faces were coming out same-y no matter who was in the family. I dug
+            into it and it turned out to be a few things stacked on top of each
+            other. This update is all of them.
+          </p>
+          <ul>
+            <li>
+              <Plumbob className="pb pb-tick" id="f1" />
+              <span>
+                <b>Each feature comes from one relative now.</b> If a child gets
+                her grandma&rsquo;s nose, she gets grandma&rsquo;s nose &ndash; the
+                shape and all the little adjustments that go with it. Before, the
+                shape came from one relative and bits of the detail came from
+                several others at the same time, so everyone slowly averaged out
+                into the same face.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="f2" />
+              <span>
+                <b>Re-rolling replaces the face instead of piling onto it.</b> Every
+                re-roll used to stack on top of the last one. After a few goes a Sim
+                was carrying detail from the whole family tree and barely changed at
+                all when you rolled again. You get a clean result now.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="f3" />
+              <span>
+                <b>Some sliders were filed under the wrong feature.</b> Five of them,
+                and it meant a Sim could get her grandma&rsquo;s nose while parts of
+                that nose were quietly coming from whoever gave her the eyes. Nose
+                bridge, top of nose and nose length were all in the wrong place.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="f4" />
+              <span>
+                <b>I mapped more of the nose, eye and mouth detail.</b> Nostrils,
+                nose rotation and eye size weren&rsquo;t recognised at all, so they
+                wandered off to a random relative instead of staying with their
+                feature.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="f5" />
+              <span>
+                <b>Brow, ears and jaw were being handed out together.</b> The game
+                has no presets for those three, and because of that they were all
+                taken from one single relative as a job lot instead of each getting
+                their own.
+              </span>
+            </li>
+            <li>
+              <Plumbob className="pb pb-tick" id="f6" />
+              <span>
+                <b>Aging detail was sitting on top of the face.</b> Sims carry a
+                second set of face values the game uses for aging, and those were
+                being pulled from a random mix of relatives and then never cleared
+                when you re-rolled. That&rsquo;s what was pinning lips, jaws and
+                cheeks in place &ndash; one Sim I was testing had the exact same lip
+                value across three re-rolls while everything underneath was changing
+                properly.
+              </span>
+            </li>
+          </ul>
+          <p>
+            If your existing Sims still look off, re-roll them &ndash; they&rsquo;re
+            carrying the old data until you do.
+          </p>
+
+          <h3>Earlier in this beta (2.9.46)</h3>
           <ul>
             <li>
               <Plumbob className="pb pb-tick" id="r1" />
