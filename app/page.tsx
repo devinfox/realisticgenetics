@@ -2,6 +2,7 @@ import "./foxmade.css";
 import { Plumbob } from "./plumbob";
 import { SignupForm } from "./signup-form";
 import { Nav } from "./nav";
+import { VideoEmbed } from "./video-embed";
 
 // Routes through /api/download, which counts the download (no personal data),
 // then redirects to the file in public/. Bump the filename in app/api/download/route.ts.
@@ -76,6 +77,17 @@ const schema = {
       publisher: { "@type": "Organization", name: "Fox Made Mods", url: "https://foxmademods.com" },
       isAccessibleForFree: true,
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    },
+    {
+      "@type": "VideoObject",
+      name: "Sims 4 Realistic Genetics Mod | Grandparent Inheritance & Recessive Genes Tutorial",
+      description:
+        "A walkthrough of both ways to use the Realistic Genetics mod: rolling a child's genetics at a natural birth, and re-rolling a Sim who is already living in your save.",
+      thumbnailUrl: "https://foxmademods.com/rg-video-thumbnail.png",
+      uploadDate: "2026-07-26",
+      embedUrl: "https://www.youtube-nocookie.com/embed/zgyJ-2TnxTY",
+      contentUrl: "https://www.youtube.com/watch?v=zgyJ-2TnxTY",
+      publisher: { "@type": "Organization", name: "Fox Made Mods", url: "https://foxmademods.com" },
     },
     {
       "@type": "FAQPage",
@@ -603,6 +615,19 @@ export default function Home() {
           </ol>
 
           <h2 id="using">Using it</h2>
+
+          <figure className="vid">
+            <VideoEmbed
+              id="zgyJ-2TnxTY"
+              title="Sims 4 Realistic Genetics Mod | Grandparent Inheritance & Recessive Genes Tutorial"
+              poster="/rg-video-thumbnail.png"
+            />
+            <figcaption>
+              A walkthrough of both ways to use it &ndash; a natural birth, and re-rolling a
+              Sim who&rsquo;s already in your save.
+            </figcaption>
+          </figure>
+
           <p>
             For new babies, you don&rsquo;t have to do anything. The genetics system runs
             automatically when they&rsquo;re born.

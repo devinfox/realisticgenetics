@@ -141,6 +141,56 @@ body{background:var(--bg)}
 
 /* result images / screenshots */
 .fm figure { margin: 26px 0; }
+
+/* Embedded walkthrough video. aspect-ratio keeps the 16:9 box without a
+   padding-top hack, and the iframe fills it at any width. */
+.fm .vid { margin: 26px 0; }
+.fm .vid iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+  border-radius: 12px;
+  background: #000;
+}
+
+/* Click-to-play poster. Our own thumbnail until the viewer presses play. */
+.fm .vid-play {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+  line-height: 0;
+}
+.fm .vid-play img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.fm .vid-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  opacity: 0.92;
+}
+.fm .vid-play:hover .vid-btn,
+.fm .vid-play:focus-visible .vid-btn { opacity: 1; transform: scale(1.06); }
+.fm .vid-btn svg { filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.5)); }
+@media (prefers-reduced-motion: reduce) {
+  .fm .vid-btn { transition: none; }
+  .fm .vid-play:hover .vid-btn { transform: none; }
+}
 .fm .shot {
   display: block; width: 100%; height: auto;
   border: 1px solid var(--border); border-radius: 16px;
