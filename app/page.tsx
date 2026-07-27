@@ -62,7 +62,7 @@ const schema = {
       applicationCategory: "GameApplication",
       applicationSubCategory: "The Sims 4 Mod",
       operatingSystem: "Windows, macOS",
-      softwareVersion: "Beta 2.9.74",
+      softwareVersion: "Beta 2.9.75",
       description:
         "A Sims 4 genetics mod that passes hair color, eye color, skin tone and facial features down the whole family tree, with dominant and recessive traits that can skip generations.",
       url: "https://foxmademods.com",
@@ -474,29 +474,24 @@ export default function Home() {
             </figure>
           </div>
 
-          <h2 id="whatsnew">Fixed in this update (Beta 2.9.74)</h2>
+          <h2 id="whatsnew">Fixed in this update (Beta 2.9.75)</h2>
           <p>
-            Two fixes: births that ended with no baby, and the re-roll button on the
-            newborn card.
+            One fix: the face a baby inherits now actually shows up when they grow to
+            teen.
           </p>
           <ul>
             <li>
               <Plumbob className="pb pb-tick" id="g1" />
               <span>
-                <b>Births that ended with no baby.</b> Some births finished with an
-                empty bassinet &ndash; no baby, the mother resetting, and the child
-                missing from the family tree. It could happen on its own or alongside
-                MC Command Center. Fixed.
-              </span>
-            </li>
-            <li>
-              <Plumbob className="pb pb-tick" id="g2" />
-              <span>
-                <b>Re-roll on the newborn card actually re-rolls now.</b> Pressing the
-                dice gave you the same relatives every time. It rolls a fresh
-                combination each press now. On a baby you&rsquo;ll see the family names
-                on the card change rather than the face &ndash; faces still arrive at
-                the teen birthday, as before.
+                <b>The inherited face arrives at the teen birthday.</b> Faces only
+                apply from teen upwards, so a Sim born in your game waits until then to
+                get theirs. That step was failing quietly, and they grew up wearing the
+                game&rsquo;s own face instead &ndash; still family-looking, but not the
+                face the mod rolled. <b>View inheritance</b> showed the right thing the
+                whole time, because the genetics were never wrong; only the step that
+                puts them on the Sim was. Sims who already grew up this way keep the
+                face they have &ndash; run <code>rg.syncsim</code> on them once to put
+                the right one back.
               </span>
             </li>
           </ul>
@@ -551,6 +546,10 @@ export default function Home() {
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <th>2.9.74</th>
+                  <td>Fixed births that ended with an empty bassinet, and made the re-roll button on the newborn card actually roll a fresh combination.</td>
+                </tr>
                 <tr>
                   <th>2.9.72</th>
                   <td>The newborn card tells you which relative each feature came from, instead of showing nothing or the previous Sim&rsquo;s family.</td>
