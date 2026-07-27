@@ -499,19 +499,7 @@ export default function Home() {
           <div className="callout">
             <p>
               <b>After a baby is born</b> and you&rsquo;ve saved their genetics from the
-              card, <b>save your game straight away</b> so it&rsquo;s locked in. And if
-              you end up with more children than you meant to, go into CAS and delete
-              the extra one.
-            </p>
-          </div>
-
-          <div className="callout">
-            <p>
-              <b>Known issue I&rsquo;m working on.</b> If you use MC Command Center to
-              pick the baby&rsquo;s gender, you can end up with an extra baby you
-              didn&rsquo;t ask for &ndash; and that extra one may not show up in CAS and
-              can disappear afterwards. I&rsquo;m still working out whether that&rsquo;s
-              MCCC, my mod, or the two together. Normal births aren&rsquo;t affected.
+              card, <b>save your game straight away</b> so it&rsquo;s locked in.
             </p>
           </div>
 
